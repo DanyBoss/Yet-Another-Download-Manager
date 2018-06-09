@@ -724,6 +724,7 @@ DownloadManager.onSearch = function () {
             });
             searching.hidden = true;
             document.getElementById('search-zero').hidden = (results.length != 0);
+            document.getElementById('empty').style.display = !(results.length != 0) ? 'none' : 'block' ;
         });
     }
 };
