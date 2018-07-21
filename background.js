@@ -8,7 +8,10 @@ else {
 }
 
 // Icon  & Theme Colors
-var lightColors = {
+var iconTheme = {
+	
+}
+var lightIconColors = {
 	progressColor: '#0d0',
 	arrow: '#fff',
 	danger: 'red',
@@ -19,7 +22,7 @@ var lightColors = {
 	timeLeft: '#fff',
 }
 
-var darkColors = {
+var darkIconColors = {
 	progressColor: '#0d0',
 	arrow: '#333',
 	danger: 'red',
@@ -30,16 +33,22 @@ var darkColors = {
 	timeLeft: '#444',
 }
 
-var colors;
-setColors();
+var activeIconColor;
+setIconColors();
 
-function setColors() {
-	if (localStorage.theme == "light") {
-		colors = lightColors;
+function setIconColors() {
+	if (localStorage.iconTheme == "light") {
+		activeIconColor = lightIconColors;
 	} else {
-		colors = darkColors;
+		activeIconColor = darkIconColors;
 	}
+	setBrowserActionIcon('n', '');
 }
+
+// Aplication Theme
+function setAppColors() {
+	//TODO
+};
 
 // Hour Format
 var hours_format;
@@ -76,13 +85,13 @@ function drawProgressSpinner(ctx, stage, color) {
 	var fill_width = (stage * total_width) / 16;
 	ctx.fillRect(0, y, fill_width, 6);
 
-	ctx.fillStyle = colors.progressBar;
+	ctx.fillStyle = activeIconColor.progressBar;
 	ctx.fillRect(fill_width, y, total_width - fill_width, 6);
 }
 
 function drawTimeLeft(ctx) {
-	ctx.fillStyle = colors.timeLeft;
-	ctx.font = "9px Arial";
+	ctx.fillStyle = activeIconColor.timeLeft;
+	ctx.font = "9px 'Open Sans'";
 	ctx.fillText(formatTimeLeft(maxTimeLeftInMs), 0, 8);
 }
 
@@ -111,7 +120,7 @@ function drawArrow(ctx, color) {
 function drawDangerBadge(ctx) {
 	let s = ctx.canvas.width / 100;
 	ctx.fillStyle = color.danger;
-	ctx.strokeStyle = colors.background;
+	ctx.strokeStyle = activeIconColor.background;
 	ctx.lineWidth = Math.round(s * 5);
 
 	let edge = ctx.canvas.width - ctx.lineWidth;
@@ -128,10 +137,10 @@ function drawDangerBadge(ctx) {
 function drawPausedBadge(ctx) {
 	let s = ctx.canvas.width / 100;
 	ctx.beginPath();
-	ctx.strokeStyle = colors.background;
+	ctx.strokeStyle = activeIconColor.background;
 	ctx.lineWidth = Math.round(s * 5);
 	ctx.rect(s * 30, s * 5, s * 15, s * 45);
-	ctx.fillStyle = colors.paused;
+	ctx.fillStyle = activeIconColor.paused;
 	ctx.fill();
 	ctx.stroke();
 	ctx.rect(s * 50, s * 5, s * 15, s * 45);
@@ -143,9 +152,9 @@ function drawCompleteBadge(ctx) {
 	let s = ctx.canvas.width / 100;
 	ctx.beginPath();
 	ctx.arc(s * 75, s * 75, s * 15, 0, 2 * Math.PI, false);
-	ctx.fillStyle = colors.complete;
+	ctx.fillStyle = activeIconColor.complete;
 	ctx.fill();
-	ctx.strokeStyle = colors.background;
+	ctx.strokeStyle = activeIconColor.background;
 	ctx.lineWidth = Math.round(s * 5);
 	ctx.stroke();
 }
@@ -158,22 +167,22 @@ function drawIcon(side, stage, badge) {
 	var ctx = canvas.getContext('2d');
 
 	if (stage == 'n') {
-		drawArrow(ctx, colors.arrow);
+		drawArrow(ctx, activeIconColor.arrow);
 	}
 
 	if (stage != 'n' && badge != 'p' && badge != 'd') {
-		drawProgressSpinner(ctx, stage, colors.complete);
+		drawProgressSpinner(ctx, stage, activeIconColor.complete);
 		drawTimeLeft(ctx);
 	}
 
 	if (badge == 'd') {
-		drawArrow(ctx, colors.danger);
+		drawArrow(ctx, activeIconColor.danger);
 		drawDangerBadge(ctx);
 	} else if (badge == 'p') {
 		drawProgressSpinner(ctx, stage, 'yellow');
 		drawPausedBadge(ctx);
 	} else if (badge == 'c') {
-		drawArrow(ctx, colors.complete);
+		drawArrow(ctx, activeIconColor.complete);
 	}
 	return canvas;
 }
@@ -403,7 +412,8 @@ chrome.notifications.onClosed.addListener(function (notificationId, byUser) {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	if (request == 'theme') {
-		setColors();
+		setIconColors();
+		setAppColors();
 		return;
 	
 	} else if(request == 'hours_format'){

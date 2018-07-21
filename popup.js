@@ -235,7 +235,6 @@ function DownloadItem(data) {
 
         return false;
     };
-    //$(item.div).contextMenu(menu1,{theme:'vista'});
     item.div.oncontextmenu = function (event) {
 
         //alert("right clicked");		
@@ -300,47 +299,15 @@ function DownloadItem(data) {
         return false;
     };
 
-    /*item.more_mousemove = function(evt) {
-      if (item.getElement('more') &&
-          (pointInElement(evt, item.div) ||
-           pointInElement(evt, item.getElement('more')))) {
-        return;
-      }
-      if (item.getElement('more')) {
-        item.getElement('more').hidden = true;
-      }
-      window.removeEventListener('mousemove', item.more_mousemove);
-    };
-    [item.getElement('icon'), item.getElement('more')].concat(
-        item.getElement('more').children).forEach(function(elem) {
-      elem.onmouseover = function() {
-        arrayFrom(items_div.children).forEach(function(other) {
-          if (other.item != item) {
-            other.item.getElement('more').hidden = true;
-          }
-        });
-        item.getElement('more').hidden = false;
-        item.getElement('more').style.top =
-          (item.div.offsetTop + item.div.offsetHeight) + 'px';
-        item.getElement('more').style.left = item.div.offsetLeft + 'px';
-        if (window.innerHeight < (parseInt(item.getElement('more').style.top) +
-                                  item.getElement('more').offsetHeight)) {
-          item.getElement('more').style.top = (
-            item.div.offsetTop - item.getElement('more').offsetHeight) + 'px';
-        }
-        window.addEventListener('mousemove', item.more_mousemove);
-      };
-    });*/
-
     if (item.referrer) {
         item.getElement('ref').innerText = item.referrer.substr(0, 25) + "...";
     } else {
         item.getElement('ref').hidden = true;
     }
     item.getElement('url').href = item.url;
-    //item.getElement('url').innerHTML = "<img class=\"info_control\" src=\"icons/ic_action_replay.png\"></img>";
     item.render();
 }
+
 DownloadItem.canResumeHack = false;
 
 DownloadItem.prototype.getElement = function (name) {
@@ -414,8 +381,6 @@ DownloadItem.prototype.render = function () {
     item.getElement('removed').innerText = item.basename;
     item.getElement('open-filename').innerText = item.basename;
 
-
-
     function setByExtension(show) {
         if (show) {
             item.getElement('by-ext').title = item.byExtensionName;
@@ -470,7 +435,6 @@ DownloadItem.prototype.render = function () {
     }
 
     if (in_progress) {
-
         if (item.estimatedEndTime && !item.paused) {
             var openWhenComplete = false;
             try {
@@ -604,11 +568,11 @@ DownloadManager.getOrCreate = function (data) {
     return item ? item : new DownloadItem(data);
 };
 
-DownloadManager.forEachItem = function (cb) {
+DownloadManager.forEachItem = cb => {
     // Calls cb(item, index) in the order that they are displayed, i.e. in order
     // of decreasing startTime.
     arrayFrom(document.getElementById('items').childNodes).forEach(
-        function (item_div, index) {
+        (item_div, index) => {
             cb(item_div.item, index);
         });
 };

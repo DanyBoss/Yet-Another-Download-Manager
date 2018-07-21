@@ -70,19 +70,36 @@ $(document).ready(function () {
         chrome.runtime.sendMessage('hour_format');
     });
 
+    // Icon Theme Format
+    if(localStorage.iconTheme && localStorage.iconTheme=="light"){
+        $("#icon_light").prop("checked", true);
+    } else {
+        $("#icon_dark").prop("checked", true);
+        localStorage.iconTheme="dark";
+    }
+
+    $("#icon_light").click(function () {
+        localStorage.iconTheme="light";
+        chrome.runtime.sendMessage('theme');
+    });
+    $("#icon_dark").click(function () {
+        localStorage.iconTheme="dark";
+        chrome.runtime.sendMessage('theme');
+    });
+
     // Theme Format
     if(localStorage.theme && localStorage.theme=="light"){
-        $("#light").prop("checked", true);
+        $("#theme_light").prop("checked", true);
     } else {
-        $("#dark").prop("checked", true);
+        $("#theme_dark").prop("checked", true);
         localStorage.theme="dark";
     }
 
-    $("#light").click(function () {
+    $("#theme_light").click(function () {
         localStorage.theme="light";
         chrome.runtime.sendMessage('theme');
     });
-    $("#dark").click(function () {
+    $("#theme_dark").click(function () {
         localStorage.theme="dark";
         chrome.runtime.sendMessage('theme');
     });
