@@ -53,6 +53,24 @@ $(document).ready(function () {
     })
 }), window.onload = function () {
 
+    // Hours Format
+    if(localStorage.hours_format && localStorage.hours_format=="12hours"){
+        $("#12hours").prop("checked", true);
+    } else {
+        $("#24hours").prop("checked", true);
+        localStorage.hours_format="24hours";
+    }
+
+    $("#12hours").click(function () {
+        localStorage.hours_format="12hours";
+        chrome.runtime.sendMessage('hour_format');
+    });
+    $("#24hours").click(function () {
+        localStorage.hours_format="24hours";
+        chrome.runtime.sendMessage('hour_format');
+    });
+
+    // Theme Format
     if(localStorage.theme && localStorage.theme=="light"){
         $("#light").prop("checked", true);
     } else {

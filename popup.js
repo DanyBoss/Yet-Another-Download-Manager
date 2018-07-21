@@ -18,7 +18,6 @@ function loadI18nMessages() {
     setProperty('title', 'innerText', 'tabTitle');
     setProperty('#q', 'placeholder', 'searchPlaceholder');
     setProperty('#all-downloads', 'title', 'AllDownloadsTitle');
-    setProperty('#translation', 'title', 'translationTitle');
     setProperty('#options-open', 'title', 'optionsTitle');
     setProperty('#clear-all', 'title', 'clearAllTitle');
     setProperty('#clear-all-text', 'innerText', 'clearAllText');
@@ -32,7 +31,6 @@ function loadI18nMessages() {
     setProperty('#open-folder-text', 'innerText', 'openDownloadsFolderText');
     setProperty('#help', 'title', 'settingsTitle');
     setProperty('#help-text', 'innerText', 'settingsText');
-
     setProperty('#empty', 'innerText', 'zeroItems');
     setProperty('#searching', 'innerText', 'searching');
     setProperty('#search-zero', 'innerText', 'zeroSearchResults');
@@ -82,12 +80,18 @@ function formatDateTime(date) {
         (date.getDate() != now.getDate())) {
         return date.getDate() + ' ' + chrome.i18n.getMessage(
             'month' + date.getMonth() + 'abbr');
-    } else if (date.getHours() == 12) {
-        return '12' + zpad_mins + 'pm';
-    } else if (date.getHours() > 12) {
-        return (date.getHours() - 12) + zpad_mins + 'pm';
+    } else if (localStorage.hours_format == "12hours"){
+        if(date.getHours() == 12) {
+            return '12' + zpad_mins + 'pm';
+        } else if (date.getHours() > 12) {
+            return (date.getHours() - 12) + zpad_mins + 'pm';
+        } else {
+            return date.getHours() + zpad_mins + 'am';
+        }
+    } else {
+        return date.getHours() + zpad_mins;
     }
-    return date.getHours() + zpad_mins + 'am';
+
 }
 
 function formatBytes(n) {

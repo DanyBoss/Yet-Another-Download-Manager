@@ -77,15 +77,9 @@ a {
 
 #q-outer {
     height: 100%;
+    width: 80%;
     display: inline-block;
     overflow: hidden;
-    background: opaque;
-    margin-top: 3px;
-    margin-bottom: -1px;
-}
-
-#q {
-    margin-right: 2em;
 }
 
 #head {
@@ -180,10 +174,6 @@ a {
     left: 25%;
 }
 
-#q {
-    margin-left: 3%;
-}
-
 .by-ext img,
 svg {
     width: 2em;
@@ -220,16 +210,6 @@ svg rect.border {
 
 .wrapper {
     position: relative;
-}
-
-.search-btn {
-    display: inline-block;
-    margin-left: 5px;
-    font-family: 'Glyphicons Halflings';
-}
-
-.search-btn:before {
-    content: "\e003";
 }
 
 .caret {
@@ -439,12 +419,13 @@ svg rect.border {
 }
 
 input[type=search] {
+    margin: 0;
     box-shadow: none;
     height: 27px;
     /* color:#bcbcbc; */
     /* background-color:#fcfcfc; */
     border: 0px solid #adc5cf;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e4f1f9', endColorstr='#d5e7f3', GradientType=0);
+    width: 100%;
 }
 
 input[type=search]:focus {
