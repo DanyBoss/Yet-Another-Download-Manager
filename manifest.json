@@ -1,36 +1,41 @@
 {
-   "background": {
-      "persistent": true,
-      "scripts": [ "background.js" ]
-   },
-   "content_scripts": [ {
-      "js": [ "indicator.js" ],
-      "matches": [ "<all_urls>"]
-   },
-   {
-      "js": [ "t.js" ],
-      "matches": [ "http://*/*" ],
-      "run_at": "document_start"
-   }],
-   "browser_action": {
-      "default_icon": {
-         "16": "icons/down-arrow16.png",
-         "32": "icons/down-arrow32.png"
+    "manifest_version": 2,
+    "name": "Yet Another Download Manager",
+    "author": "Daniel Carmo",
+    "version": "0.2.0",
+    "default_locale": "en",
+    "description": "__MSG_extDesc__",
+    "icons": {
+        "128": "icons/down-arrow128.png"
       },
-      "default_popup": "popup.html",
-      "default_title": "Yet Another Download Manager"
-   },
-   "default_locale": "en",
-   "description": "__MSG_extDesc__",
-   "icons": {
-      "128": "icons/down-arrow128.png"
-   },
-   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
-   "offline_enabled": true,
-   "manifest_version": 2,
-   "name": "Yet Another Download Manager",
-   "optional_permissions": [ "management" ],
-   "permissions": ["downloads", "downloads.open","downloads.shelf","clipboardWrite","clipboardRead","notifications","activeTab"],
-  "web_accessible_resources": [ "icons/startd.png","icons/startdr.png"],
-   "version": "0.2.0"
+    "background": {
+        "persistent": true,
+        "scripts": [ "background.js" ]
+    },
+    "content_scripts": [ {
+        "js": [ "indicator.js" ],
+        "matches": [ "<all_urls>"] 
+        }, {
+        "js": [ "t.js" ],
+        "matches": [ "http://*/*" ],
+        "run_at": "document_start"
+        }],
+    "browser_action": {
+        "default_icon": {
+            "16": "icons/down-arrow16.png",
+             "32": "icons/down-arrow32.png"
+        },
+        "default_popup": "popup.html",
+        "default_title": "Yet Another Download Manager"
+    },
+    "options_page": "settings.html",
+        "options_ui": {
+            "chrome_style": false,
+            "page": "settings.html"
+    },
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+    "offline_enabled": true,
+    "optional_permissions": [ "management" ],
+    "permissions": ["downloads", "downloads.open","downloads.shelf","clipboardWrite","clipboardRead","notifications","activeTab"],
+    "web_accessible_resources": [ "icons/startd.png","icons/startdr.png"]
 }
