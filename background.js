@@ -46,8 +46,22 @@ function setIconColors() {
 }
 
 // Aplication Theme
+var darkAppColors = {
+	background: '#505050',
+	textColor: '#fff',
+}
+
+var lightAppColors = {
+	background: '#fff',
+	textColor: '#000',
+}
+
 function setAppColors() {
-	//TODO
+	 if(localStorage.theme == 'light') {
+	 	
+	 } else {
+
+	 }
 };
 
 // Hour Format
@@ -415,9 +429,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		setIconColors();
 		setAppColors();
 		return;
-	
 	} else if(request == 'hours_format'){
-		//do things
 		setHourFormat();
 		return;
 	} else if (request == 'poll') {

@@ -2,7 +2,9 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Downloads Manager</title>	
+	<title>Downloads Manager</title>
+	<link rel="icon" href="icons/icon.png">
+
 	<link href="/css/font.css" rel="stylesheet" type="text/css">
 	<link href="/css/bootstrap.css" rel="stylesheet" media="screen"/>
 	<link href="/css/flat-ui.css"  rel="stylesheet" media="screen"/>
@@ -20,12 +22,6 @@
 <body>
 	<div class="row pageContent">
 		<div class="span2 sidebar">
-			<div class="row-fluid">
-				<div class = "span6">
-					<p style = "font-size:14px; margin-top:8px; margin-left: 5px;">Downloads Manager</p>
-				</div>
-			</div>
-
 			<div class="row-fluid menu">
 				<div id="settingsMenu" class="row-fluid menuItem selected" data-tab="settingsTab">
 					<p>Settings</p>
@@ -36,16 +32,16 @@
 				 <div class="row-fluid menuItem" data-tab="changelogTab">
 					<p>Changelog</p>
 				</div>
+				<div class="row-fluid menuItem" data-tab="aboutTab">
+					<p>About</p>
+				</div>
 			</div>
 		</div>
 		<div class="span10">
+			
+		<!--Settings Tab-->
+
 			<div id="settingsTab" class="tab activeTab">
-				<div class="row-fluid title-bar">
-					<div class="span7">
-						<h4> Settings </h4>
-					</div>
-					
-				</div>
 				<div class="row-fluid"  id="settings">
 					<div class = "row-fluid setting">
 						<div class = "row-fluid">
@@ -133,6 +129,10 @@
 					</div>
 				</div>
 			</div>
+
+			
+		<!--Help Tab-->
+
 		<div id="helpTab" class="tab">
 			<div class="row-fluid title-bar">
 				<div class="span7">
@@ -311,57 +311,11 @@
 						</div>
 					</div>
 				</div>
-				<div class = "row-fluid setting">
-					<div class = "row-fluid">
-						<div class = "span12">
-							<p style = "font-size:18px;"></p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span12">
-							<p style = "font-size:18px;"></p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span11 offset1">
-							<p></p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span12">
-							<p style = "font-size:18px;"></p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span12">
-							<p style = "font-size:18px;"></p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span12">
-							<p style = "font-size:18px;"></p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span12">
-							<p style = "font-size:18px;"></p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span12">
-							<p style = "font-size:18px;"></p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span12">
-							<p style = "font-size:18px;"></p>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 
 
+		<!--Changelog Tab-->
 
 		<div id="changelogTab" class="tab">
 			<div class="row-fluid title-bar">
@@ -396,129 +350,17 @@
 			</div>
 		</div>
 
-
-		<div id="trTab" class="tab">
+		<!--About Tab-->
+		
+		<div id="aboutTab" class="tab">
 			<div class="row-fluid title-bar">
 				<div class="span7">
-					<h4> Help With Translation </h4>
+					<h4> About </h4>
 				</div>
 			</div>
-			<div class="row-fluid"  id="help">
-				<div class = "row-fluid setting">
-					<div class = "row-fluid">
-						<div class = "span12">
-							<p style = "font-size:18px;">Here is how you can help with better translation of this extension into your language.</p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span1 offset1">
-							<p>Step 1:</p>
-						</div>
-						<div style = "font-size:16px;" class = "span10">
-							<p>Identify your Language Code
-
-							<table border="1" style="width:50%">
-							  <tr>
-							    <td>English</td>
-							    <td>en</td>
-							  </tr>
-							  <tr>
-							    <td>Russian</td> 
-							    <td>ru</td>
-							  </tr>
-							  <tr>
-							    <td>Chinese</td> 
-							    <td>zh</td>
-							  </tr>
-							  <tr>
-							    <td>Arabic</td> 
-							    <td>ar</td>
-							  </tr>
-							  <tr>
-							    <td>Danish</td> 
-							    <td>da</td>
-							  </tr>
-							  <tr>
-							    <td>German</td> 
-							    <td>de</td>
-							  </tr>
-							  <tr>
-							    <td>Spanish</td> 
-							    <td>es</td>
-							  </tr>
-							  <tr>
-							    <td>French</td> 
-							    <td>fr</td>
-							  </tr>
-							  <tr>
-							    <td>Indonesian</td> 
-							    <td>id</td>
-							  </tr>
-							  <tr>
-							    <td>Italian</td> 
-							    <td>it</td>
-							  </tr>
-							  <tr>
-							    <td>Japanese</td> 
-							    <td>ja</td>
-							  </tr>
-							  <tr>
-							    <td>Dutch</td> 
-							    <td>nl</td>
-							  </tr>
-							  <tr>
-							    <td>Dutch</td> 
-							    <td>nl</td>
-							  </tr>
-							  <tr>
-							    <td>Portuguese</td> 
-							    <td>pt</td>
-							  </tr>
-							  <tr>
-							    <td>Ukrainian</td> 
-							    <td>uk</td>
-							  </tr>
-							  <tr>
-							    <td>Vietnamese</td> 
-							    <td>vi</td>
-							  </tr>
-							</table>
-							</p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span1 offset1">
-							<p>Step 2:</p>
-						</div>
-						
-						<div style = "font-size:16px;" class = "span10">
-							<p>Locate actual message files in your languages at <a target='_blank' href="https://github.com/prabhat90/DownloadManager/tree/master/_locales">github.com/prabhat90/DownloadManager</a></p>
-						</div>
-					</div>
-					<div class = "row-fluid">
-						<div class = "span1 offset1">
-							<p></p>
-						</div>
-						<div style = "font-size:16px;" class = "span10">
-							<p>open messages.json file (inside the folder of your language code) in the language that you want to translate from and in the language that you want to translate into in other tab.</p>
-						</div>
-						
-					</div>
-
-					<div class = "row-fluid">
-						<div class = "span1 offset1">
-							<p>Step 3:</p>
-						</div>
-						
-						
-						<div style = "font-size:16px;" class = "span10">
-							<p>If u think something is mis-translated. You can tells us your suggested translation (or request translation into your language if it is not yet supported) comment/post at <a href="https://github.com/prabhat90/DownloadManager/issues" target='_blank'>github</a> or <a href="https://www.facebook.com/ChromeDownloadManager" target="_blank">our facebook page</a> or <a href="https://chrome.google.com/webstore/support/daoidaoebhfcgccdpgjjcbdginkofmfe?hl=en&gl=IN#feature" target="_blank">extension feedback page</a></p>
-						</div>
-					</div>
-					
-				</div>	
-			</div>
 		</div>
+
+		
 	</div>
 </body>
 </html>

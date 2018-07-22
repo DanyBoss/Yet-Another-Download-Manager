@@ -3,18 +3,18 @@
 
 <head>
     <title></title>
+    <link rel="icon" href="icons/icon.png">
 
     <script src="lib/jquery.js"></script>
     <script src="lib/jquery.contextMenu.js"></script>
     <script src="lib/jquery.ui.position.js"></script>
     <script src="popup.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.contextMenu.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/font.css">
     <link rel="stylesheet" type="text/css" href="css/popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.contextMenu.css">
-    <link rel="icon" href="icon19.png">
 </head>
 
 <body>
@@ -51,9 +51,10 @@
         </div>
     </div>
 
+    <!-- Download Entry on Popup -->
     <div class="item" draggable="true" hidden>
         <div class="wrapper_top">
-            <img class="icon" src="icons/down-arrow32.png">
+            <img class="icon" src='icons/unknown.png'>
 
             <div class="more" hidden>
                 <span class="more-left">
@@ -65,13 +66,12 @@
                 </a>
             </div>
 
-
-
             <div class="wrapper">
                 <span class="file-url">
                     <div class="file-url-head">
                         <span class="removed"></span>
                         <a href="#" class="open-filename"></a>
+                        <span id="time" class="start-time"></span>
                     </div>
 
                     <div class="second">
@@ -79,7 +79,6 @@
                         <span class="dash"> &nbsp;&nbsp; </span>
                         <span class="ref"></span>
                         <span class="dash"> </span>
-                        <span id="time" class="start-time"></span>
                         <span class="in-progress">
                             <span class="myprogress"></span>
                             <span class="speed"></span>
@@ -100,6 +99,7 @@
                 </div>
             </div>
         </div>
+
         <div class="progress1">
             <div class="meter">
                 <span />

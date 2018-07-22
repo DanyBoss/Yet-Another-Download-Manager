@@ -6,7 +6,7 @@
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {
-        "128": "icons/down-arrow128.png"
+        "128": "icons/icon.png"
       },
     "background": {
         "persistent": true,
@@ -22,8 +22,8 @@
         }],
     "browser_action": {
         "default_icon": {
-            "16": "icons/down-arrow16.png",
-             "32": "icons/down-arrow32.png"
+            "16": "icons/icon.png",
+             "32": "icons/icon.png"
         },
         "default_popup": "popup.html",
         "default_title": "Yet Another Download Manager"

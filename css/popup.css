@@ -40,6 +40,10 @@
 }
 
 .pro {
+    position:absolute;
+    left: 88%;
+    bottom: 50%;
+
     font-size: 10px;
     color: #0091DD;
 }
@@ -319,14 +323,10 @@ svg rect.border {
 .meter {
     clear: left;
     position: relative;
-    width: 87%;
-    margin-top: 7px;
-    margin-right: 5px;
+    width: 95%;
     float: left;
-    height: 6px;
+    height: 5px;
     background: #ebebeb;
-    -webkit-box-shadow: inset 0 2px 3px rgba(0, 0, 0, .2), 0 1px #fff;
-    box-shadow: inset 0 2px 3px rgba(0, 0, 0, .2), 0 1px #fff;
 }
 
 .wrapper_top {
@@ -535,19 +535,13 @@ button:hover {
     font-size: 18px;
 }
 
+/* Scrollbar thingies */
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
 ::-webkit-scrollbar {
-    width: 18px;
-}
-
-::-webkit-scrollbar-track {
-    background-color: #eaeaea;
-    border-left: 1px solid #ccc;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa;
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
 }
