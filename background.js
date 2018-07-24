@@ -8,9 +8,6 @@ else {
 }
 
 // Icon  & Theme Colors
-var iconTheme = {
-	
-}
 var lightIconColors = {
 	progressColor: '#0d0',
 	arrow: '#fff',
@@ -55,14 +52,6 @@ var lightAppColors = {
 	background: '#fff',
 	textColor: '#000',
 }
-
-function setAppColors() {
-	 if(localStorage.theme == 'light') {
-	 	
-	 } else {
-
-	 }
-};
 
 // Hour Format
 var hours_format;
@@ -427,7 +416,6 @@ chrome.notifications.onClosed.addListener(function (notificationId, byUser) {
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	if (request == 'theme') {
 		setIconColors();
-		setAppColors();
 		return;
 	} else if(request == 'hours_format'){
 		setHourFormat();

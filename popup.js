@@ -48,7 +48,6 @@ function loadI18nMessages() {
     setProperty('.url', 'title', 'retryTitle');
     setProperty('.referrer', 'title', 'referrerTitle');
     setProperty('.open-filename', 'title', 'openTitle');
-    setProperty('#bad-chrome-version', 'innerText', 'badChromeVersion');
     setProperty('.remove-file', 'title', 'removeFileTitle');
 
     document.querySelector('.myprogress').style.minWidth =
@@ -345,26 +344,26 @@ DownloadItem.prototype.render = function () {
                 'size': 32
             },
             function (icon_url) {
-                //item.getElement('icon').hidden = !icon_url;
                 if (icon_url) {
                     item.icon_url = icon_url;
                     item.getElement('icon').src = icon_url;
+                    if(!openable){
+                        item.getElement('icon').style.filter = 'grayscale(100%)';
+                    }
                 }
             });
     }
+
+    
     item.div.style.cursor = openable ? 'pointer' : '';
     item.getElement('removed').style.display = openable ? 'none' : 'inline';
-    item.getElement('open-filename').style.display = (
-        openable ? 'inline' : 'none');
+    item.getElement('open-filename').style.display = (openable ? 'inline' : 'none');
     item.getElement('in-progress').hidden = !in_progress;
     item.getElement('pause').style.display = (!in_progress || item.paused) ? 'none' : 'inline-block';
     item.getElement('resume').style.display = (!in_progress || !item.canResume) ? 'none' : 'inline-block';
     item.getElement('cancel').style.display = (!in_progress ? 'none' : 'inline-block');
-    item.getElement('remove-file').hidden = (
-        (item.state != 'complete') ||
-        !item.exists ||
-        item.deleted ||
-        !chrome.downloads.removeFile);
+    item.getElement('remove-file').hidden = ( (item.state != 'complete') ||
+        !item.exists || item.deleted || !chrome.downloads.removeFile);
     item.getElement('erase').hidden = in_progress;
     item.getElement('complete-size').hidden = in_progress;
     item.getElement('start-time').hidden = in_progress;
@@ -1088,4 +1087,12 @@ function setup() {
         this.style.visibility = 'hidden';
     }
 
+    if(localStorage.theme == 'dark') {
+        document.getElementById('head').style.backgroundColor = '#333';
+        
+        var selects = document.getElementsByClassName("item");
+            for(var i =0, il = selects.length; i<il; i++){
+                selects[i].style.backgroundColor += "#333";
+            }
+    }
 }

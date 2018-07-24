@@ -15,7 +15,6 @@
 
 .contextMenu {
     width: 170px;
-    background-color: grey;
     position: absolute;
     z-index: 1000;
     overflow: hidden;
@@ -43,7 +42,6 @@
     position:absolute;
     left: 88%;
     bottom: 50%;
-
     font-size: 10px;
     color: #0091DD;
 }
@@ -86,15 +84,6 @@ a {
     overflow: hidden;
 }
 
-#head {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    /* top:0; */
-    background: #fff;
-    z-index: 2;
-    border-bottom: 1px solid #ddd;
-}
 
 #search-zero {
     position: absolute;
@@ -166,10 +155,14 @@ a {
 }
 
 #head {
+    position: fixed;
     top: 0px;
+    left: 0;
     height: 40px;
-    /* background-color:#f4f6f9 */
-    ;
+    width: 100%;
+    background: #fff;
+    z-index: 2;
+    border-bottom: 1px solid #ddd;
 }
 
 #empty {
@@ -281,6 +274,11 @@ svg rect.border {
     max-width: 400px;
     overflow: hidden;
     display: inline-block;
+}
+
+.removed {
+    color: #747373;
+    text-decoration: line-through;
 }
 
 .remove-file svg {
